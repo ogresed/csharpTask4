@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace Task4.V3
+namespace Task4.V3.Db
 {
     class ManagerDb
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Task4.V3
+namespace Task4.V3.Db
 {
-    class Worker
+    public class Worker
     {
         public Worker()
         {
@@ -14,7 +14,8 @@ namespace Task4.V3
         public string Name { get; set; }
         public string Surname { get; set; }
         public int Age { get; set; }
+        public string Email { get; set; }
 
-        public ICollection<Project> Projects { get; set; }
+        public virtual ICollection<Project> Projects { get; set; }
     }
 }

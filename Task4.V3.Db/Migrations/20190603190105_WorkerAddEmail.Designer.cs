@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Task4.V3;
+using Task4.V3.Db;
 
 namespace Task4.V3.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20190602203235_TryCreateNP")]
-    partial class TryCreateNP
+    [Migration("20190603190105_WorkerAddEmail")]
+    partial class WorkerAddEmail
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace Task4.V3.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Task4.V3.Project", b =>
+            modelBuilder.Entity("Task4.V3.Db.Project", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -39,11 +39,15 @@ namespace Task4.V3.Migrations
                     b.ToTable("Projects");
                 });
 
-            modelBuilder.Entity("Task4.V3.Worker", b =>
+            modelBuilder.Entity("Task4.V3.Db.Worker", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Age");
+
+                    b.Property<string>("Email");
 
                     b.Property<string>("Name");
 
@@ -54,9 +58,9 @@ namespace Task4.V3.Migrations
                     b.ToTable("Workers");
                 });
 
-            modelBuilder.Entity("Task4.V3.Project", b =>
+            modelBuilder.Entity("Task4.V3.Db.Project", b =>
                 {
-                    b.HasOne("Task4.V3.Worker")
+                    b.HasOne("Task4.V3.Db.Worker", "Worker")
                         .WithMany("Projects")
                         .HasForeignKey("WorkerID")
                         .OnDelete(DeleteBehavior.Cascade);

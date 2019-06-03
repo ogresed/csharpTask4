@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Task4.V3;
+using Task4.V3.Db;
 
 namespace Task4.V3.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20190601200645_AddProjectWorkerId")]
-    partial class AddProjectWorkerId
+    [Migration("20190602214501_Try2")]
+    partial class Try2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,11 +31,11 @@ namespace Task4.V3.Migrations
 
                     b.Property<int>("Salary");
 
-                    b.Property<int>("WorkerId");
+                    b.Property<int>("WorkerID");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("WorkerId");
+                    b.HasIndex("WorkerID");
 
                     b.ToTable("Projects");
                 });
@@ -56,9 +57,9 @@ namespace Task4.V3.Migrations
 
             modelBuilder.Entity("Task4.V3.Project", b =>
                 {
-                    b.HasOne("Task4.V3.Worker")
-                        .WithMany("WorkerProjects")
-                        .HasForeignKey("WorkerId")
+                    b.HasOne("Task4.V3.Worker", "Worker")
+                        .WithMany("Projects")
+                        .HasForeignKey("WorkerID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

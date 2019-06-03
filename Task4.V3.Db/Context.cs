@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Task4.V3
+namespace Task4.V3.Db
 {
-    class Context : DbContext
+    public class Context : DbContext
     {
         public DbSet<Worker> Workers { get; set; }
         public DbSet<Project> Projects { get; set; }

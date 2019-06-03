@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Task4.V3;
+using Task4.V3.Db;
 
 namespace Task4.V3.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20190602214501_Try2")]
-    partial class Try2
+    [Migration("20190602202836_RenameFolders")]
+    partial class RenameFolders
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,8 +57,8 @@ namespace Task4.V3.Migrations
 
             modelBuilder.Entity("Task4.V3.Project", b =>
                 {
-                    b.HasOne("Task4.V3.Worker", "Worker")
-                        .WithMany("Projects")
+                    b.HasOne("Task4.V3.Worker")
+                        .WithMany("ProjectID")
                         .HasForeignKey("WorkerID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
