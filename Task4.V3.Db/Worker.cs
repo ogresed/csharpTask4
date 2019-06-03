@@ -18,7 +18,10 @@ namespace Task4.V3.Db
         public string Phone { get; set; }
         public string Address { get; set; }
         public string District { get; set; }
+<<<<<<< HEAD
         public int Height { get; set; }
+=======
+>>>>>>> district
         public virtual ICollection<Project> Projects { get; set; }
     }
 }

@@ -191,6 +191,7 @@ namespace Task4.V3.Db
             worker.District = distr;
             _ctx.SaveChanges();
         }
+<<<<<<< HEAD
 
         public void ChangeHeight()
         {
@@ -207,5 +208,7 @@ namespace Task4.V3.Db
             worker.Height = hei;
             _ctx.SaveChanges();
         }
+=======
+>>>>>>> district
     }
 }
