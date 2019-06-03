@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Task4.V3.Db;
 
 namespace Task4.V3.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20190603193045_WorkerAddDistrict")]
+    partial class WorkerAddDistrict
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,11 +49,7 @@ namespace Task4.V3.Migrations
 
                     b.Property<int>("Age");
 
-                    b.Property<string>("District");
-
                     b.Property<string>("Email");
-
-                    b.Property<int>("Height");
 
                     b.Property<string>("Name");
 

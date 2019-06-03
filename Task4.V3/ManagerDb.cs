@@ -156,6 +156,7 @@ namespace Task4.V3.Db
         {
             try
             {
+                _ctx.Database.EnsureCreated();
                 Console.WriteLine("Enter projects id:");
                 var pId = Int32.Parse(Console.ReadLine());
                 var tmp = _ctx.Projects.First(x => x.Id == pId);
@@ -173,6 +174,38 @@ namespace Task4.V3.Db
             {
                 Console.WriteLine("Wrong value");
             }
+        }
+
+        public void ChangeDistrict()
+        {
+            Console.WriteLine("Enter id of worker:");
+            var wId = Int32.Parse(Console.ReadLine());
+            var worker = _ctx.Workers.First(x => x.Id == wId);
+            if(worker == null)
+            {
+                Console.WriteLine("Nonexistent id");
+                return;
+            }
+            Console.WriteLine("Enter new district:");
+            var distr = Console.ReadLine();
+            worker.District = distr;
+            _ctx.SaveChanges();
+        }
+
+        public void ChangeHeight()
+        {
+            Console.WriteLine("Enter id of worker:");
+            var wId = Int32.Parse(Console.ReadLine());
+            var worker = _ctx.Workers.First(x => x.Id == wId);
+            if (worker == null)
+            {
+                Console.WriteLine("Nonexistent id");
+                return;
+            }
+            Console.WriteLine("Enter new height:");
+            var hei = Int32.Parse(Console.ReadLine());
+            worker.Height = hei;
+            _ctx.SaveChanges();
         }
     }
 }
